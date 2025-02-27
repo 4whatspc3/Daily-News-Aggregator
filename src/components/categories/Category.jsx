@@ -5,7 +5,7 @@ const Category = ({ title }) => {
         <img></img>
       </div>
       <div className="category-title">
-        <h2>{title}</h2>
+        <h3>{title}</h3>
       </div>
     </div>
   );

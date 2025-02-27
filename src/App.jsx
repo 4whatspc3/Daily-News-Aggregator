@@ -1,10 +1,11 @@
 import "./App.css";
 import Category from "./components/categories/Category";
+import Title from "./components/title/Title";
 
 function App() {
   return (
     <>
-      <h1>Hello, world!</h1>
+      <Title />
       <Category title="Politics" />
       <Category title="Sport" />
       <Category title="Cinema and TV" />

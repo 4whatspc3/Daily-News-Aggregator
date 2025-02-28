@@ -7,8 +7,10 @@ import Title from "./components/title/Title";
 function App() {
   return (
     <>
-      <nav>
+      <header>
         <Logo />
+      </header>
+      <nav>
         <Title />
         <Category title="Politics" icon={<Icons expr={"polis"} />} />
         <Category title="Sport" icon={<Icons expr={"sport"} />} />

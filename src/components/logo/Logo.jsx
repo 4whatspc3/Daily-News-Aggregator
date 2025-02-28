@@ -2,7 +2,10 @@ const Logo = () => {
   return (
     <div className="logo">
       <div className="logo-image">
-        <img src="" alt="" />
+        <img
+          src="src/assets/iconsLogo/circle-svgrepo-com(1).svg"
+          alt="flat circle"
+        />
       </div>
       <div className="logo-text">
         <h1>Your Daily News</h1>

@@ -1,3 +1,27 @@
+nav {
+    border-right: 6px solid #709933;
+    border-radius: 25px;
+    max-width: 300px;
+}
+
+.category {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+}
+
 .category-icon img {
     max-width: 50px;
+}
+
+.category-title button {
+    background-color: transparent;
+    border: none;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.category-title button:hover {
+    transform: scale(1.2);
 }

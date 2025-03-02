@@ -10,3 +10,5 @@ const News = ({ direction, thumbnail, content }) => {
     </div>
   );
 };
+
+export default News;

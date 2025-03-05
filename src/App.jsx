@@ -80,7 +80,23 @@ function App() {
         />
       </nav>
       <main>
-        {items.slice(0, 6).map((item) => (
+        {items.slice(0, 2).map((item) => (
+          <News
+            key={item.id}
+            direction="horizontal"
+            thumbnail="ola mundo"
+            content={item.body}
+          />
+        ))}
+        {items.slice(2, 6).map((item) => (
+          <News
+            key={item.id}
+            direction="vertical"
+            thumbnail="ola mundo"
+            content={item.body}
+          />
+        ))}
+        {items.slice(6, 8).map((item) => (
           <News
             key={item.id}
             direction="horizontal"

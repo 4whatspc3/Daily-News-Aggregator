@@ -1,9 +1,9 @@
-const Category = ({ title, icon }) => {
+const Category = ({ title, icon, changeResource }) => {
   return (
     <div className="category">
       <div className="category-icon">{icon}</div>
       <div className="category-title">
-        <button>{title}</button>
+        <button onClick={() => changeResource(title)}>{title}</button>
       </div>
     </div>
   );

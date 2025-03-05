@@ -1,3 +1,12 @@
+#root{
+    display: grid;
+    grid-template: 0.5fr 2fr / 1fr 2fr;
+}
+
+header {
+    grid-area: 1 / 1 / 2 / 2;
+}
+
 .logo {
     display: flex;
     justify-content: flex-start;
@@ -13,6 +22,7 @@
 }
 
 nav {
+    grid-area: 2 / 1 / 3 / 2;
     border-right: 6px solid #709933;
     border-radius: 25px;
     max-width: 300px;
@@ -38,4 +48,44 @@ nav {
 
 .category-title button:hover {
     transform: scale(1.2);
+}
+
+main {
+    grid-area: 2 / 2 / 3 / 3;
+    display: grid;
+    grid-template: repeat(4, 1fr) / repeat(4, 1fr);
+}
+
+main > div:nth-of-type(1){
+    grid-area: 1 / 1 / 2 / 3;
+}
+
+main > div:nth-of-type(2) {
+    grid-area: 2 / 1 / 3 / 3;
+
+}
+
+main div:nth-of-type(3){
+    grid-area: 1 / 3 / 3 / 4;
+
+}
+
+main div:nth-of-type(4) {
+    grid-area: 1 / 4 / 3 / 5;
+}
+
+main div:nth-of-type(5) {
+    grid-area: 3 / 1 / 5 / 2;
+}
+
+main div:nth-of-type(6) {
+    grid-area: 3 / 2 / 5 / 3;
+}
+
+main div:nth-of-type(7) {
+    grid-area: 3 / 3 / 4 / 5;
+}
+
+main div:nth-of-type(8) {
+    grid-area: 4 / 3 / 5 / 5;
 }

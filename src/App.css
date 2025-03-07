@@ -1,6 +1,7 @@
 #root{
     display: grid;
-    grid-template: 0.5fr 2fr / 1fr 2fr;
+    grid-template: 0.5fr 2fr / 0.5fr 2fr;
+    gap: 10px;
 }
 
 header {
@@ -44,6 +45,7 @@ nav {
     border: none;
     font-size: 20px;
     font-weight: bold;
+    text-align: left;
 }
 
 .category-title button:hover {
@@ -54,6 +56,7 @@ main {
     grid-area: 2 / 2 / 3 / 3;
     display: grid;
     grid-template: repeat(4, 1fr) / repeat(4, 1fr);
+    gap: 10px;
 }
 
 main > div:nth-of-type(1){
@@ -88,4 +91,14 @@ main div:nth-of-type(7) {
 
 main div:nth-of-type(8) {
     grid-area: 4 / 3 / 5 / 5;
+}
+
+@media (max-width: 1200px) {
+    main {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        gap: 10px;
+    }
 }

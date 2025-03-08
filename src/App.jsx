@@ -9,7 +9,8 @@ import Title from "./components/title/Title";
 
 function App() {
   const [resourceType, setResourceType] = useState("politics");
-  const [arr, setArr] = useState([]);
+  const [firstArr, setFirstArr] = useState([]);
+  const [secondArr, setSecondArr] = useState([]);
 
   function changeResource(value) {
     return setResourceType(value);
@@ -19,17 +20,17 @@ function App() {
     const abortController = new AbortController();
     const signal = abortController.signal;
 
-    async function fetchData() {
+    async function fetchFirstData() {
       try {
         const response = await fetch(
-          `https://api.thenewsapi.com/v1/news/top?locale=us&language=en&categories=${resourceType}&api_token=FAZEdTRjUMs66l39jd9FoodWHiK0wjYgPfQymiyE`,
+          `https://jsonplaceholder.typicode.com/posts`,
           { method: "GET", mode: "cors", signal: signal }
         );
         const json = await response.json();
 
         console.log(json);
 
-        setArr(json.data);
+        setFirstArr(json);
       } catch (error) {
         if (error.name !== "AbortError") {
           console.error("Something went wrong:", error);
@@ -37,7 +38,29 @@ function App() {
       }
     }
 
-    fetchData();
+    async function fetchSecondData() {
+      try {
+        const response = await fetch(
+          `https://jsonplaceholder.typicode.com/posts`,
+          { method: "GET", mode: "cors", signal: signal }
+        );
+        const json = await response.json();
+
+        console.log(json);
+
+        setSecondArr(json);
+      } catch (error) {
+        if (error.name !== "AbortError") {
+          console.error("Something went wrong:", error);
+        }
+      }
+    }
+
+    fetchFirstData();
+
+    fetchSecondData();
+
+    //https://api.thenewsapi.com/v1/news/top?locale=us&language=en&categories=${resourceType}&api_token=FAZEdTRjUMs66l39jd9FoodWHiK0wjYgPfQymiyEhttps://api.thenewsapi.com/v1/news/top?locale=us&language=en&categories=${resourceType}&api_token=FAZEdTRjUMs66l39jd9FoodWHiK0wjYgPfQymiyE
 
     return () => {
       abortController.abort();
@@ -78,16 +101,26 @@ function App() {
         />
       </nav>
       <main>
-        {Array.isArray(arr) &&
-          arr.map((item, index) => (
+        <div className="container-horizontal-news">
+          {firstArr.slice(0, 3).map((item) => (
             <News
-              key={item["uuid"]}
+              key={item.id}
               direction="horizontal"
-              thumbnail={item["image_url"]}
-              content={item["title"]}
-              link={item["url"]}
+              thumbnail="ola mundo"
+              content={item.body}
             />
           ))}
+        </div>
+        <div className="container-vertical-news">
+          {secondArr.slice(0, 3).map((item) => (
+            <News
+              key={item.id}
+              direction="vertical"
+              thumbnail="ola mundo"
+              content={item.body}
+            />
+          ))}
+        </div>
       </main>
     </>
   );

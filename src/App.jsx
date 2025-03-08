@@ -8,11 +8,11 @@ import News from "./components/news/News";
 import Title from "./components/title/Title";
 
 function App() {
-  const [resourceType, setResourceType] = useState("posts");
-  const [items, setItems] = useState([]);
+  const [resourceType, setResourceType] = useState("politics");
+  const [arr, setArr] = useState([]);
 
-  function changeResource(title) {
-    return setResourceType(title);
+  function changeResource(value) {
+    return setResourceType(value);
   }
 
   useEffect(() => {
@@ -22,16 +22,14 @@ function App() {
     async function fetchData() {
       try {
         const response = await fetch(
-          `https://jsonplaceholder.typicode.com/${resourceType}`,
-          { signal }
+          `https://api.thenewsapi.com/v1/news/top?locale=us&language=en&categories=${resourceType}&api_token=FAZEdTRjUMs66l39jd9FoodWHiK0wjYgPfQymiyE`,
+          { method: "GET", mode: "cors", signal: signal }
         );
         const json = await response.json();
 
-        setItems(json);
-
         console.log(json);
 
-        console.log(resourceType);
+        setArr(json.data);
       } catch (error) {
         if (error.name !== "AbortError") {
           console.error("Something went wrong:", error);
@@ -56,54 +54,40 @@ function App() {
         <Category
           title="Politics"
           icon={<Icons expr={"polis"} />}
-          changeResource={changeResource}
+          changeResource={() => changeResource("politics")}
         />
         <Category
           title="Sport"
           icon={<Icons expr={"sport"} />}
-          changeResource={changeResource}
+          changeResource={() => changeResource("sports")}
         />
         <Category
           title="Cinema and TV"
           icon={<Icons expr={"cinema"} />}
-          changeResource={changeResource}
+          changeResource={() => changeResource("entertainment")}
         />
         <Category
-          title="Music"
+          title="Business"
           icon={<Icons expr={"music"} />}
-          changeResource={changeResource}
+          changeResource={() => changeResource("business")}
         />
         <Category
           title="Science"
           icon={<Icons expr={"science"} />}
-          changeResource={changeResource}
+          changeResource={() => changeResource("science")}
         />
       </nav>
       <main>
-        {items.slice(0, 2).map((item) => (
-          <News
-            key={item.id}
-            direction="horizontal"
-            thumbnail="ola mundo"
-            content={item.body}
-          />
-        ))}
-        {items.slice(2, 6).map((item) => (
-          <News
-            key={item.id}
-            direction="vertical"
-            thumbnail="ola mundo"
-            content={item.body}
-          />
-        ))}
-        {items.slice(6, 8).map((item) => (
-          <News
-            key={item.id}
-            direction="horizontal"
-            thumbnail="ola mundo"
-            content={item.body}
-          />
-        ))}
+        {Array.isArray(arr) &&
+          arr.map((item, index) => (
+            <News
+              key={item["uuid"]}
+              direction="horizontal"
+              thumbnail={item["image_url"]}
+              content={item["title"]}
+              link={item["url"]}
+            />
+          ))}
       </main>
     </>
   );

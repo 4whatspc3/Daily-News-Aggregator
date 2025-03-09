@@ -101,4 +101,8 @@ main {
     .container-vertical-news{
         flex-direction: column;
     }
+
+    .news.vertical {
+        flex-direction: row;
+    }
 }

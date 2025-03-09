@@ -23,14 +23,14 @@ function App() {
     async function fetchFirstData() {
       try {
         const response = await fetch(
-          `https://jsonplaceholder.typicode.com/posts`,
+          `https://api.thenewsapi.com/v1/news/top?locale=us&language=en&categories=${resourceType}&api_token=FAZEdTRjUMs66l39jd9FoodWHiK0wjYgPfQymiyE`,
           { method: "GET", mode: "cors", signal: signal }
         );
         const json = await response.json();
 
-        console.log(json);
+        console.log(json.data);
 
-        setFirstArr(json);
+        setFirstArr(json.data);
       } catch (error) {
         if (error.name !== "AbortError") {
           console.error("Something went wrong:", error);
@@ -41,14 +41,14 @@ function App() {
     async function fetchSecondData() {
       try {
         const response = await fetch(
-          `https://jsonplaceholder.typicode.com/posts`,
+          `https://api.thenewsapi.com/v1/news/top?locale=ca&language=en&categories=${resourceType}&api_token=KTdcT81JKWv3g5HwDjBxeC9XGgcWWnYlGJXnS3X2`,
           { method: "GET", mode: "cors", signal: signal }
         );
         const json = await response.json();
 
-        console.log(json);
+        console.log(json.data);
 
-        setSecondArr(json);
+        setSecondArr(json.data);
       } catch (error) {
         if (error.name !== "AbortError") {
           console.error("Something went wrong:", error);
@@ -59,8 +59,6 @@ function App() {
     fetchFirstData();
 
     fetchSecondData();
-
-    //https://api.thenewsapi.com/v1/news/top?locale=us&language=en&categories=${resourceType}&api_token=FAZEdTRjUMs66l39jd9FoodWHiK0wjYgPfQymiyEhttps://api.thenewsapi.com/v1/news/top?locale=us&language=en&categories=${resourceType}&api_token=FAZEdTRjUMs66l39jd9FoodWHiK0wjYgPfQymiyE
 
     return () => {
       abortController.abort();
@@ -102,24 +100,28 @@ function App() {
       </nav>
       <main>
         <div className="container-horizontal-news">
-          {firstArr.slice(0, 3).map((item) => (
-            <News
-              key={item.id}
-              direction="horizontal"
-              thumbnail="ola mundo"
-              content={item.body}
-            />
-          ))}
+          {Array.isArray(firstArr) &&
+            firstArr.map((item) => (
+              <News
+                key={item["uuid"]}
+                direction="horizontal"
+                thumbnail={item["image_url"]}
+                content={item["title"]}
+                link={item["url"]}
+              />
+            ))}
         </div>
         <div className="container-vertical-news">
-          {secondArr.slice(0, 3).map((item) => (
-            <News
-              key={item.id}
-              direction="vertical"
-              thumbnail="ola mundo"
-              content={item.body}
-            />
-          ))}
+          {Array.isArray(firstArr) &&
+            secondArr.map((item) => (
+              <News
+                key={item["uuid"]}
+                direction="vertical"
+                thumbnail={item["image_url"]}
+                content={item["title"]}
+                link={item["url"]}
+              />
+            ))}
         </div>
       </main>
     </>

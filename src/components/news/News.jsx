@@ -1,4 +1,4 @@
-const News = ({ direction, thumbnail, content, link }) => {
+const News = ({ direction, thumbnail, title, description, link }) => {
   return (
     <div
       className={
@@ -11,9 +11,16 @@ const News = ({ direction, thumbnail, content, link }) => {
         </a>
       </div>
       <div className="new-content">
-        <a href={`${link}`}>
-          <p>{content}</p>
-        </a>
+        <div className="news-title">
+          <a href={`${link}`}>
+            <p>{title}</p>
+          </a>
+        </div>
+        <div className="news-description">
+          <a href={`${link}`}>
+            <p>{description}</p>
+          </a>
+        </div>
       </div>
     </div>
   );

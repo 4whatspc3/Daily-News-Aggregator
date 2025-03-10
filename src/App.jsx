@@ -106,7 +106,8 @@ function App() {
                 key={item["uuid"]}
                 direction="horizontal"
                 thumbnail={item["image_url"]}
-                content={item["title"]}
+                title={item["title"]}
+                description={item["description"]}
                 link={item["url"]}
               />
             ))}
@@ -118,7 +119,8 @@ function App() {
                 key={item["uuid"]}
                 direction="vertical"
                 thumbnail={item["image_url"]}
-                content={item["title"]}
+                title={item["title"]}
+                description={item["description"]}
                 link={item["url"]}
               />
             ))}

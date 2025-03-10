@@ -5,9 +5,12 @@ const Icons = ({ expr }) => {
         <img src="src/assets/iconsCategories/cinema.svg" alt="cinema icon" />
       );
 
-    case "music":
+    case "business":
       return (
-        <img src="src/assets/iconsCategories/music.svg" alt="music icon" />
+        <img
+          src="src/assets/iconsCategories/business.svg"
+          alt="business icon"
+        />
       );
 
     case "polis":

@@ -89,7 +89,7 @@ function App() {
         />
         <Category
           title="Business"
-          icon={<Icons expr={"music"} />}
+          icon={<Icons expr={"business"} />}
           changeResource={() => changeResource("business")}
         />
         <Category

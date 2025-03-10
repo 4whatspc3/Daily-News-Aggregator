@@ -1,6 +1,6 @@
 #root{
     display: grid;
-    grid-template: 0.5fr 2fr / 0.4fr 2fr;
+    grid-template: 0.4fr 2fr / 0.4fr 2fr;
     gap: 10px;
 }
 
@@ -12,6 +12,7 @@ header {
     display: flex;
     justify-content: flex-start;
     align-items: center;
+    max-width: 250px;
 }
 
 .logo-image img {
@@ -20,6 +21,7 @@ header {
 
 .logo-text {
     transform: translateX(-20%);
+    white-space: nowrap;
 }
 
 nav {

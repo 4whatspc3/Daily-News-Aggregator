@@ -1,16 +1,12 @@
 const News = ({ direction, thumbnail, title, description, link }) => {
   return (
-    <div
-      className={
-        direction === "horizontal" ? "news horizonal" : "news vertical"
-      }
-    >
+    <div className="news">
       <div className="news-thumbnail">
         <a href={`${link}`}>
-          <img src={`${thumbnail}`} width="100" height="100" alt="News image" />
+          <img src={`${thumbnail}`} alt="News image" />
         </a>
       </div>
-      <div className="new-content">
+      <div className="news-content">
         <div className="news-title">
           <a href={`${link}`}>
             <p>{title}</p>

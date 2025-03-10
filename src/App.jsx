@@ -99,12 +99,11 @@ function App() {
         />
       </nav>
       <main>
-        <div className="container-horizontal-news">
+        <div className="container-first-news">
           {Array.isArray(firstArr) &&
             firstArr.map((item) => (
               <News
                 key={item["uuid"]}
-                direction="horizontal"
                 thumbnail={item["image_url"]}
                 title={item["title"]}
                 description={item["description"]}
@@ -112,12 +111,11 @@ function App() {
               />
             ))}
         </div>
-        <div className="container-vertical-news">
+        <div className="container-second-news">
           {Array.isArray(firstArr) &&
             secondArr.map((item) => (
               <News
                 key={item["uuid"]}
-                direction="vertical"
                 thumbnail={item["image_url"]}
                 title={item["title"]}
                 description={item["description"]}

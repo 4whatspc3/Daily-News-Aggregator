@@ -1,4 +1,11 @@
 const News = ({ direction, thumbnail, title, description, link }) => {
+  if (!thumbnail?.trim()) {
+    thumbnail = new URL(
+      "src/assets/fallback/elementor-placeholder-image.png",
+      import.meta.url
+    ).href;
+  }
+
   return (
     <div className="news">
       <div className="news-thumbnail">

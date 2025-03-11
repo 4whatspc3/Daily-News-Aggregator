@@ -174,11 +174,51 @@ a:active {
 }
 
 @media (max-width: 1200px) {
+    #root{
+        grid-template-rows: 0.1fr 0.1fr 0.8fr;
+        grid-template-columns: 1fr;
+    }
+
+    header {
+        grid-row: 1 / 2;
+        grid-column: 1 / 2;
+        place-self: center;
+    }
+
+    nav {
+        max-width: 100%;
+        grid-row: 2 / 3;
+        grid-column: 1 / 2;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        overflow-x: auto;
+        scrollbar-width: thin;
+        scrollbar-color: gray transparent;
+    }
+
+    .category:hover {
+        transform: translateY(-30px);
+    }
+
     main {
+        grid-row: 3 / 4;
+        grid-column: 1 / 2;
         display: flex;
         flex-direction: column;
         justify-content: space-evenly;
         align-items: center;
-        gap: 20px;
+        gap: 60px;
     }
+
+    .container-first-news,
+    .container-second-news{
+        gap: 60px;
+    }
+
+    .news {
+        max-width: 100%;
+    }
+    
+
 }

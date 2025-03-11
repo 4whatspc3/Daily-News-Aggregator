@@ -97,6 +97,7 @@ main {
 }
 
 .news {
+    box-sizing: border-box;
     max-width: 720px;
     height: 230px;
     display: flex;
@@ -120,13 +121,16 @@ main {
 }
 
 .news-content {
-    max-height: 115px;
     padding-right: 10px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-content: left;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: transparent transparent;
 }
+  
 
 .news-title p {
     text-align: left;

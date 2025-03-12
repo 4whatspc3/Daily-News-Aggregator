@@ -227,7 +227,7 @@ footer {
 
 @media (max-width: 1200px) {
     #root{
-        grid-template-rows: 0.1fr 0.2fr 0.8fr;
+        grid-template-rows: 0.1fr 0.2fr 0.8fr 0.1fr;
         grid-template-columns: 1fr;
     }
 
@@ -281,5 +281,8 @@ footer {
         border-top-right-radius: 25px;
     }
     
-
+    footer{
+        grid-row: 4 / 5;
+        grid-column: 1 / 2;
+    }
 }

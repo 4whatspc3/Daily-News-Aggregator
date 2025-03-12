@@ -124,6 +124,21 @@ function App() {
             ))}
         </div>
       </main>
+      <footer>
+        <div className="author">
+          <p>
+            Created by <b>Matheus Augusto</b>. Source and photo credits on my{" "}
+            <a
+              href="https://github.com/4whatspc3"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              GitHub
+            </a>
+            .
+          </p>
+        </div>
+      </footer>
     </>
   );
 }

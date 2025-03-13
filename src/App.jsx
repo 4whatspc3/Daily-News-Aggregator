@@ -69,6 +69,9 @@ function App() {
     <>
       <header>
         <Logo />
+        <div className="category-name">
+          <p>{resourceType}</p>
+        </div>
       </header>
       <nav>
         <Title />

@@ -7,13 +7,59 @@ import Logo from "./components/logo/Logo";
 import News from "./components/news/News";
 import Title from "./components/title/Title";
 
+const DisplayNews = ({ value, firstArr, secondArr }) => {
+  if (value === false) {
+    return (
+      <div>
+        <p>Loading...</p>
+      </div>
+    );
+  }
+
+  if (value === true) {
+    return (
+      <>
+        <div className="container-first-news">
+          {Array.isArray(firstArr) &&
+            firstArr.map((item) => (
+              <News
+                key={item["uuid"]}
+                thumbnail={item["image_url"]}
+                title={item["title"]}
+                description={item["description"]}
+                link={item["url"]}
+              />
+            ))}
+        </div>
+        <div className="container-second-news">
+          {Array.isArray(secondArr) &&
+            secondArr.map((item) => (
+              <News
+                key={item["uuid"]}
+                thumbnail={item["image_url"]}
+                title={item["title"]}
+                description={item["description"]}
+                link={item["url"]}
+              />
+            ))}
+        </div>
+      </>
+    );
+  }
+};
+
 function App() {
   const [resourceType, setResourceType] = useState("politics");
   const [firstArr, setFirstArr] = useState([]);
   const [secondArr, setSecondArr] = useState([]);
+  const [value, setValue] = useState(false);
 
-  function changeResource(value) {
-    return setResourceType(value);
+  function changeResource(type) {
+    return setResourceType(type);
+  }
+
+  function changeValue() {
+    return setValue((prev) => !prev);
   }
 
   useEffect(() => {
@@ -65,6 +111,16 @@ function App() {
     };
   }, [resourceType]);
 
+  useEffect(() => {
+    const timeoutId = setTimeout(() => {
+      setValue(true);
+    }, 3000);
+
+    console.log(value);
+
+    return () => clearTimeout(timeoutId);
+  }, [value]);
+
   return (
     <>
       <header>
@@ -79,53 +135,35 @@ function App() {
           title="Politics"
           icon={<Icons expr={"polis"} />}
           changeResource={() => changeResource("politics")}
+          changeValue={changeValue}
         />
         <Category
           title="Sport"
           icon={<Icons expr={"sport"} />}
           changeResource={() => changeResource("sports")}
+          changeValue={changeValue}
         />
         <Category
           title="Cinema and TV"
           icon={<Icons expr={"cinema"} />}
           changeResource={() => changeResource("entertainment")}
+          changeValue={changeValue}
         />
         <Category
           title="Business"
           icon={<Icons expr={"business"} />}
           changeResource={() => changeResource("business")}
+          changeValue={changeValue}
         />
         <Category
           title="Science"
           icon={<Icons expr={"science"} />}
           changeResource={() => changeResource("science")}
+          changeValue={changeValue}
         />
       </nav>
       <main>
-        <div className="container-first-news">
-          {Array.isArray(firstArr) &&
-            firstArr.map((item) => (
-              <News
-                key={item["uuid"]}
-                thumbnail={item["image_url"]}
-                title={item["title"]}
-                description={item["description"]}
-                link={item["url"]}
-              />
-            ))}
-        </div>
-        <div className="container-second-news">
-          {Array.isArray(firstArr) &&
-            secondArr.map((item) => (
-              <News
-                key={item["uuid"]}
-                thumbnail={item["image_url"]}
-                title={item["title"]}
-                description={item["description"]}
-                link={item["url"]}
-              />
-            ))}
-        </div>
+        <DisplayNews value={value} firstArr={firstArr} secondArr={secondArr} />
       </main>
       <footer>
         <div className="author">

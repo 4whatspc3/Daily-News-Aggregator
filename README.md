@@ -1,8 +1,3 @@
-# React + Vite
+# Daily News Aggregator
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+This is a responsive web application built with React that fetches and displays news from [The News API](https://www.thenewsapi.com/). Users can browse news articles categorized into sports, science, politics, entertainment, and business. The app provides a clean and user-friendly interface, ensuring easy navigation across different topics. It is optimized for performance and responsiveness, delivering a seamless experience on desktops, tablets, and mobile devices. Future improvements may include search functionality, user preferences, and bookmarking features.

@@ -1,5 +1,5 @@
 {
-  "name": "daily-news-digest",
+  "name": "daily-news-aggregator",
   "private": true,
   "version": "0.0.0",
   "type": "module",

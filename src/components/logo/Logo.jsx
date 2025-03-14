@@ -3,7 +3,7 @@ const Logo = () => {
     <div className="logo">
       <div className="logo-image">
         <img
-          src="src/assets/iconsLogo/circle-svgrepo-com(2).svg"
+          src="src/public/iconsLogo/circle-svgrepo-com(2).svg"
           alt="flat circle"
         />
       </div>

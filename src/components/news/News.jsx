@@ -1,7 +1,7 @@
-const News = ({ direction, thumbnail, title, description, link }) => {
+const News = ({ thumbnail, title, description, link }) => {
   if (!thumbnail?.trim()) {
     thumbnail = new URL(
-      "src/assets/fallback/elementor-placeholder-image.png",
+      "src/public/fallback/elementor-placeholder-image.png",
       import.meta.url
     ).href;
   }

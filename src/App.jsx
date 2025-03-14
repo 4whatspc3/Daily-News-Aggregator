@@ -6,12 +6,13 @@ import Icons from "./components/categories/icons/Icons";
 import Logo from "./components/logo/Logo";
 import News from "./components/news/News";
 import Title from "./components/title/Title";
+import LoaderComponent from "./components/loader/LoaderComponent";
 
 const DisplayNews = ({ value, firstArr, secondArr }) => {
   if (value === false) {
     return (
-      <div>
-        <p>Loading...</p>
+      <div className="loader">
+        <LoaderComponent />
       </div>
     );
   }

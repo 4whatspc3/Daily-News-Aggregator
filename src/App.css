@@ -115,6 +115,11 @@ main {
     overflow-y: auto;
 }
 
+.loader{
+    align-self: center;
+    transform: translateY(-100px);
+}
+
 .container-first-news,
 .container-second-news {
     display: flex;

@@ -229,13 +229,22 @@ footer {
     nav {
         max-width: 150px;
     }
-    
 
+    main {
+        justify-self: center;
+        gap: 40px;
+    }
+    
     .news {
         max-width: 500px;
         height: 460px;
         display: flex;
         flex-direction: column;
+        transform: scale(0.9);
+    }
+
+    .news:hover{
+        transform: translateY(-10px);
     }
     
     .news-thumbnail {
@@ -329,6 +338,10 @@ footer {
     .container-first-news,
     .container-second-news{
         gap: 60px;
+    }
+
+    .news {
+        transform: scale(1);
     }
 
     .news-thumbnail {

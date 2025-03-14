@@ -4,50 +4,8 @@ import "./App.css";
 import Category from "./components/categories/Category";
 import Icons from "./components/categories/icons/Icons";
 import Logo from "./components/logo/Logo";
-import News from "./components/news/News";
 import Title from "./components/title/Title";
-import LoaderComponent from "./components/loader/LoaderComponent";
-
-const DisplayNews = ({ value, firstArr, secondArr }) => {
-  if (value === false) {
-    return (
-      <div className="loader">
-        <LoaderComponent />
-      </div>
-    );
-  }
-
-  if (value === true) {
-    return (
-      <>
-        <div className="container-first-news">
-          {Array.isArray(firstArr) &&
-            firstArr.map((item) => (
-              <News
-                key={item["uuid"]}
-                thumbnail={item["image_url"]}
-                title={item["title"]}
-                description={item["description"]}
-                link={item["url"]}
-              />
-            ))}
-        </div>
-        <div className="container-second-news">
-          {Array.isArray(secondArr) &&
-            secondArr.map((item) => (
-              <News
-                key={item["uuid"]}
-                thumbnail={item["image_url"]}
-                title={item["title"]}
-                description={item["description"]}
-                link={item["url"]}
-              />
-            ))}
-        </div>
-      </>
-    );
-  }
-};
+import DisplayNews from "./components/news/DisplayNews";
 
 function App() {
   const [resourceType, setResourceType] = useState("politics");
@@ -75,8 +33,6 @@ function App() {
         );
         const json = await response.json();
 
-        console.log(json.data);
-
         setFirstArr(json.data);
       } catch (error) {
         if (error.name !== "AbortError") {
@@ -92,8 +48,6 @@ function App() {
           { method: "GET", mode: "cors", signal: signal }
         );
         const json = await response.json();
-
-        console.log(json.data);
 
         setSecondArr(json.data);
       } catch (error) {
@@ -116,8 +70,6 @@ function App() {
     const timeoutId = setTimeout(() => {
       setValue(true);
     }, 3000);
-
-    console.log(value);
 
     return () => clearTimeout(timeoutId);
   }, [value]);

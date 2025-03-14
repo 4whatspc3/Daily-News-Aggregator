@@ -118,6 +118,7 @@ main {
     display: flex;
     justify-content: space-evenly;
     align-items: top;
+    padding: 20px 0px;
     gap: 10px;
     overflow-y: auto;
 }
@@ -244,7 +245,7 @@ footer {
     }
 
     .news:hover{
-        transform: translateY(-10px);
+        transform: translateY(-20px) scale(0.9);
     }
     
     .news-thumbnail {
@@ -342,6 +343,10 @@ footer {
 
     .news {
         transform: scale(1);
+    }
+
+    .news:hover {
+        transform: translateY(-20px) scale(1);
     }
 
     .news-thumbnail {

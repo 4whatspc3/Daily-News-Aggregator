@@ -1,14 +1,13 @@
-import "ldrs/lineWobble";
+import "./Loader.css";
 
 const LoaderComponent = () => {
   return (
-    <l-line-wobble
-      size="80"
-      stroke="5"
-      bg-opacity="0.1"
-      speed="1.75"
-      color="black"
-    ></l-line-wobble>
+    <div class="lds-ellipsis">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
   );
 };
 

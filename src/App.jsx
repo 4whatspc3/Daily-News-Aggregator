@@ -76,6 +76,7 @@ function App() {
 
   return (
     <>
+      <div className="pattern"></div>
       <header>
         <Logo />
         <div className="category-name">

@@ -15,6 +15,26 @@
     100%{opacity: 1;}
 }
 
+.pattern {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background-color: #ffffff;
+    opacity: 0;
+    background-image:  repeating-radial-gradient( circle at 0 0, transparent 0, #ffffff 120px ), repeating-linear-gradient( #00000055, #000000 );
+    z-index: -1;
+    animation: 5s show-and-hide infinite alternate ease-in-out;
+}
+
+@keyframes show-and-hide {
+    0% { 
+        opacity: 0; 
+    }
+    100% { 
+        opacity: 0.1; 
+    }
+}
+  
 header {
     grid-area: 1 / 1 / 2 / 3;
     display: grid;
@@ -140,6 +160,7 @@ main {
 }
 
 .news {
+    background-color: white;
     box-sizing: border-box;
     max-width: 720px;
     height: 230px;
